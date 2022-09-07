@@ -213,14 +213,15 @@ strong{
 
 #socials--list{
     display: flex;
-    justify-content: space-between;
+    justify-content: space-evenly;
     column-gap: 1em;
     flex-wrap: wrap;
+
 }
 
 #socials--list a{
-    font-weight: 300;
-    color: var(--secondaryTextColor);
+    font-weight: 500;
+    color: var(--mainTextColor);
     font-size: 0.9em;
     transition: 0.3s;
 }
