@@ -289,6 +289,8 @@ function crearTable(course) {
     tr.appendChild(credential);
     credential.appendChild(credentialurl);
 
+    tr.className = "hidden";
+
     placeurl.setAttribute("href",course.InstitutionUrl);
     placeurl.setAttribute("target","_blank");
 
@@ -338,7 +340,7 @@ function crearCards(course) {
     credential.appendChild(idcredential);
 
     
-    button.className = "accordion";
+    button.className = "accordion hidden";
     coursename.className = "aedu";
     panel.className = "panel";
     card.className = "card--course";
@@ -393,7 +395,7 @@ document.addEventListener("DOMContentLoaded", () => {
 /* Function Search Table*/
 
 
-/* Funtion for accordion botton*/
+/* Function for accordion botton*/
 var acc = document.getElementsByClassName("accordion");
 var i;
 
@@ -412,4 +414,20 @@ for (i = 0; i < acc.length; i++) {
         }
     });
 }
-/* Funtion for accordion botton*/
+/* Function for accordion botton*/
+
+/*Function class change*/
+const observer = new IntersectionObserver((entries) => {
+	entries.forEach((entry) => {
+		console.log(entry)
+		if (entry.isIntersecting) {
+			entry.target.classList.add("show");
+		}else{
+			entry.target.classList.remove("show");
+		}
+    });
+});
+
+const hiddenElements = document.querySelectorAll(".hidden");
+hiddenElements.forEach((el) => observer.observe(el));
+/*Function class change*/
